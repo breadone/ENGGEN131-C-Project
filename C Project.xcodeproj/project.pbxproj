@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		46726A56270BE4B700D24BBE /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 46726A55270BE4B700D24BBE /* main.c */; };
 		46726A5E270BE7A100D24BBE /* InitialiseFloor.c in Sources */ = {isa = PBXBuildFile; fileRef = 46726A5D270BE7A100D24BBE /* InitialiseFloor.c */; };
+		46726A63270BF6E400D24BBE /* PrintFloor.c in Sources */ = {isa = PBXBuildFile; fileRef = 46726A62270BF6E400D24BBE /* PrintFloor.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,10 @@
 		46726A55270BE4B700D24BBE /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		46726A5C270BE7A100D24BBE /* InitialiseFloor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InitialiseFloor.h; sourceTree = "<group>"; };
 		46726A5D270BE7A100D24BBE /* InitialiseFloor.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = InitialiseFloor.c; sourceTree = "<group>"; };
+		46726A61270BF6E400D24BBE /* PrintFloor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrintFloor.h; sourceTree = "<group>"; };
+		46726A62270BF6E400D24BBE /* PrintFloor.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = PrintFloor.c; sourceTree = "<group>"; };
+		46726A64270BF71000D24BBE /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		46726A65270BF7CA00D24BBE /* functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = functions.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +65,11 @@
 		46726A54270BE4B700D24BBE /* ENGGEN 131 C Project */ = {
 			isa = PBXGroup;
 			children = (
+				46726A64270BF71000D24BBE /* constants.h */,
+				46726A65270BF7CA00D24BBE /* functions.h */,
 				46726A55270BE4B700D24BBE /* main.c */,
 				46726A5F270BE7A600D24BBE /* InitialiseFloor */,
+				46726A60270BF6CA00D24BBE /* PrintFloor */,
 			);
 			path = "ENGGEN 131 C Project";
 			sourceTree = "<group>";
@@ -73,6 +81,15 @@
 				46726A5D270BE7A100D24BBE /* InitialiseFloor.c */,
 			);
 			path = InitialiseFloor;
+			sourceTree = "<group>";
+		};
+		46726A60270BF6CA00D24BBE /* PrintFloor */ = {
+			isa = PBXGroup;
+			children = (
+				46726A61270BF6E400D24BBE /* PrintFloor.h */,
+				46726A62270BF6E400D24BBE /* PrintFloor.c */,
+			);
+			path = PrintFloor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,7 +126,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 46726A4D270BE4B700D24BBE /* Build configuration list for PBXProject "ENGGEN 131 C Project" */;
+			buildConfigurationList = 46726A4D270BE4B700D24BBE /* Build configuration list for PBXProject "C Project" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -133,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46726A56270BE4B700D24BBE /* main.c in Sources */,
+				46726A63270BF6E400D24BBE /* PrintFloor.c in Sources */,
 				46726A5E270BE7A100D24BBE /* InitialiseFloor.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,7 +292,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		46726A4D270BE4B700D24BBE /* Build configuration list for PBXProject "ENGGEN 131 C Project" */ = {
+		46726A4D270BE4B700D24BBE /* Build configuration list for PBXProject "C Project" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				46726A57270BE4B700D24BBE /* Debug */,
