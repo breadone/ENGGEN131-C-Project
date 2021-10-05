@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		46726A56270BE4B700D24BBE /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 46726A55270BE4B700D24BBE /* main.c */; };
+		46726A5E270BE7A100D24BBE /* InitialiseFloor.c in Sources */ = {isa = PBXBuildFile; fileRef = 46726A5D270BE7A100D24BBE /* InitialiseFloor.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		46726A52270BE4B700D24BBE /* ENGGEN 131 C Project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "ENGGEN 131 C Project"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46726A55270BE4B700D24BBE /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		46726A5C270BE7A100D24BBE /* InitialiseFloor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InitialiseFloor.h; sourceTree = "<group>"; };
+		46726A5D270BE7A100D24BBE /* InitialiseFloor.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = InitialiseFloor.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +61,18 @@
 			isa = PBXGroup;
 			children = (
 				46726A55270BE4B700D24BBE /* main.c */,
+				46726A5F270BE7A600D24BBE /* InitialiseFloor */,
 			);
 			path = "ENGGEN 131 C Project";
+			sourceTree = "<group>";
+		};
+		46726A5F270BE7A600D24BBE /* InitialiseFloor */ = {
+			isa = PBXGroup;
+			children = (
+				46726A5C270BE7A100D24BBE /* InitialiseFloor.h */,
+				46726A5D270BE7A100D24BBE /* InitialiseFloor.c */,
+			);
+			path = InitialiseFloor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46726A56270BE4B700D24BBE /* main.c in Sources */,
+				46726A5E270BE7A100D24BBE /* InitialiseFloor.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
