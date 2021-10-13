@@ -10,5 +10,6 @@
 
 #include "InitialiseFloor.h"
 #include "PrintFloor.h"
+#include "FloorAreaAvailable.h"
 
 #endif /* functions_h */

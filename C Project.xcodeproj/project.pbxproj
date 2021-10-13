@@ -10,6 +10,7 @@
 		46726A56270BE4B700D24BBE /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 46726A55270BE4B700D24BBE /* main.c */; };
 		46726A5E270BE7A100D24BBE /* InitialiseFloor.c in Sources */ = {isa = PBXBuildFile; fileRef = 46726A5D270BE7A100D24BBE /* InitialiseFloor.c */; };
 		46726A63270BF6E400D24BBE /* PrintFloor.c in Sources */ = {isa = PBXBuildFile; fileRef = 46726A62270BF6E400D24BBE /* PrintFloor.c */; };
+		46A260A727154AEF009DB53E /* FloorAreaAvailable.c in Sources */ = {isa = PBXBuildFile; fileRef = 46A260A627154AEF009DB53E /* FloorAreaAvailable.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +34,8 @@
 		46726A62270BF6E400D24BBE /* PrintFloor.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = PrintFloor.c; sourceTree = "<group>"; };
 		46726A64270BF71000D24BBE /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		46726A65270BF7CA00D24BBE /* functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = functions.h; sourceTree = "<group>"; };
+		46A260A527154AEF009DB53E /* FloorAreaAvailable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FloorAreaAvailable.h; sourceTree = "<group>"; };
+		46A260A627154AEF009DB53E /* FloorAreaAvailable.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = FloorAreaAvailable.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +52,7 @@
 		46726A49270BE4B700D24BBE = {
 			isa = PBXGroup;
 			children = (
-				46726A54270BE4B700D24BBE /* ENGGEN 131 C Project */,
+				46726A54270BE4B700D24BBE /* C Project */,
 				46726A53270BE4B700D24BBE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,34 +65,44 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		46726A54270BE4B700D24BBE /* ENGGEN 131 C Project */ = {
+		46726A54270BE4B700D24BBE /* C Project */ = {
 			isa = PBXGroup;
 			children = (
 				46726A64270BF71000D24BBE /* constants.h */,
 				46726A65270BF7CA00D24BBE /* functions.h */,
 				46726A55270BE4B700D24BBE /* main.c */,
-				46726A5F270BE7A600D24BBE /* InitialiseFloor */,
-				46726A60270BF6CA00D24BBE /* PrintFloor */,
+				46726A5F270BE7A600D24BBE /* 1. InitialiseFloor */,
+				46726A60270BF6CA00D24BBE /* 2. PrintFloor */,
+				46A260A427154AB2009DB53E /* 3. FloorAreaAvailable */,
 			);
-			path = "ENGGEN 131 C Project";
+			path = "C Project";
 			sourceTree = "<group>";
 		};
-		46726A5F270BE7A600D24BBE /* InitialiseFloor */ = {
+		46726A5F270BE7A600D24BBE /* 1. InitialiseFloor */ = {
 			isa = PBXGroup;
 			children = (
 				46726A5C270BE7A100D24BBE /* InitialiseFloor.h */,
 				46726A5D270BE7A100D24BBE /* InitialiseFloor.c */,
 			);
-			path = InitialiseFloor;
+			path = "1. InitialiseFloor";
 			sourceTree = "<group>";
 		};
-		46726A60270BF6CA00D24BBE /* PrintFloor */ = {
+		46726A60270BF6CA00D24BBE /* 2. PrintFloor */ = {
 			isa = PBXGroup;
 			children = (
 				46726A61270BF6E400D24BBE /* PrintFloor.h */,
 				46726A62270BF6E400D24BBE /* PrintFloor.c */,
 			);
-			path = PrintFloor;
+			path = "2. PrintFloor";
+			sourceTree = "<group>";
+		};
+		46A260A427154AB2009DB53E /* 3. FloorAreaAvailable */ = {
+			isa = PBXGroup;
+			children = (
+				46A260A527154AEF009DB53E /* FloorAreaAvailable.h */,
+				46A260A627154AEF009DB53E /* FloorAreaAvailable.c */,
+			);
+			path = "3. FloorAreaAvailable";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46726A56270BE4B700D24BBE /* main.c in Sources */,
+				46A260A727154AEF009DB53E /* FloorAreaAvailable.c in Sources */,
 				46726A63270BF6E400D24BBE /* PrintFloor.c in Sources */,
 				46726A5E270BE7A100D24BBE /* InitialiseFloor.c in Sources */,
 			);

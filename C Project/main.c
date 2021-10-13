@@ -11,8 +11,9 @@
 int main(void) {
     int floor[NUM_ROWS][NUM_COLS];
     
-    InitialiseFloor(floor, 'R', 5);
+    InitialiseFloor(floor, 'B', 2);
     PrintFloor(floor);
+    printf("Available Area: %f sq ft\n", FloorAreaAvailable(floor, 10.5, 25.6));
     return 0;
 }
 
