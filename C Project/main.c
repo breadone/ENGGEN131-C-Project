@@ -11,15 +11,23 @@
 int main(void) {
     int floor[NUM_ROWS][NUM_COLS];
     
+    int rowA, colA, rowB, colB, isBlocked;
     InitialiseFloor(floor, 'R', 3);
     AddContainer(floor, 9, 3, 0);
-    AddContainer(floor, 13, 5, 1);
-    AddContainer(floor, 9, 4, 1);
-    PrintFloor(floor);
+    AddContainer(floor, 11, 2, 1);
+    AddContainer(floor, 13, 6, 1);
     AddContainer(floor, 49, 2, 0);
     PrintFloor(floor);
-    printf("Floor area available: %f\n", FloorAreaAvailable(floor,
-    10.5, 25.6));
+    printf("Area Available: %f sq ft\n", FloorAreaAvailable(floor, 10, 5));
+    
+    isBlocked = LocateContainer(floor, 'A', &rowA, &colA, &rowB, &colB);
+    printf("Container A is at: (%d, %d) - (%d, %d) Blocked? %d\n", rowA, colA, rowB, colB, isBlocked);
+    
+    isBlocked = LocateContainer(floor, 'B', &rowA, &colA, &rowB, &colB);
+    printf("Container B is at: (%d, %d) - (%d, %d) Blocked? %d\n", rowA, colA, rowB, colB, isBlocked);
+    
+    isBlocked = LocateContainer(floor, 'C', &rowA, &colA, &rowB, &colB);
+    printf("Container C is at: (%d, %d) - (%d, %d) Blocked? %d\n", rowA, colA, rowB, colB, isBlocked);
     return 0;
 }
 

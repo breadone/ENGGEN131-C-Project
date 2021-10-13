@@ -12,5 +12,6 @@
 #include "PrintFloor.h"
 #include "FloorAreaAvailable.h"
 #include "AddContainer.h"
+#include "LocateContainer.h"
 
 #endif /* functions_h */

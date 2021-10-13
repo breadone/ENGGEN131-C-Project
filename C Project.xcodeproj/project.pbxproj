@@ -12,6 +12,7 @@
 		46726A63270BF6E400D24BBE /* PrintFloor.c in Sources */ = {isa = PBXBuildFile; fileRef = 46726A62270BF6E400D24BBE /* PrintFloor.c */; };
 		46A260A727154AEF009DB53E /* FloorAreaAvailable.c in Sources */ = {isa = PBXBuildFile; fileRef = 46A260A627154AEF009DB53E /* FloorAreaAvailable.c */; };
 		46EFA828271665560060D728 /* AddContainer.c in Sources */ = {isa = PBXBuildFile; fileRef = 46EFA827271665560060D728 /* AddContainer.c */; };
+		46EFA82C27167A0A0060D728 /* LocateContainer.c in Sources */ = {isa = PBXBuildFile; fileRef = 46EFA82B27167A0A0060D728 /* LocateContainer.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,8 @@
 		46A260A627154AEF009DB53E /* FloorAreaAvailable.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = FloorAreaAvailable.c; sourceTree = "<group>"; };
 		46EFA826271665560060D728 /* AddContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddContainer.h; sourceTree = "<group>"; };
 		46EFA827271665560060D728 /* AddContainer.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = AddContainer.c; sourceTree = "<group>"; };
+		46EFA82A27167A0A0060D728 /* LocateContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocateContainer.h; sourceTree = "<group>"; };
+		46EFA82B27167A0A0060D728 /* LocateContainer.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = LocateContainer.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,7 @@
 				46726A60270BF6CA00D24BBE /* 2. PrintFloor */,
 				46A260A427154AB2009DB53E /* 3. FloorAreaAvailable */,
 				46EFA825271665440060D728 /* 4. AddContainer */,
+				46EFA829271679EE0060D728 /* 5. LocateContainer */,
 			);
 			path = "C Project";
 			sourceTree = "<group>";
@@ -116,6 +120,15 @@
 				46EFA827271665560060D728 /* AddContainer.c */,
 			);
 			path = "4. AddContainer";
+			sourceTree = "<group>";
+		};
+		46EFA829271679EE0060D728 /* 5. LocateContainer */ = {
+			isa = PBXGroup;
+			children = (
+				46EFA82A27167A0A0060D728 /* LocateContainer.h */,
+				46EFA82B27167A0A0060D728 /* LocateContainer.c */,
+			);
+			path = "5. LocateContainer";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +193,7 @@
 				46A260A727154AEF009DB53E /* FloorAreaAvailable.c in Sources */,
 				46726A63270BF6E400D24BBE /* PrintFloor.c in Sources */,
 				46726A5E270BE7A100D24BBE /* InitialiseFloor.c in Sources */,
+				46EFA82C27167A0A0060D728 /* LocateContainer.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
