@@ -25,6 +25,9 @@ void PrintFloor(int floor[NUM_ROWS][NUM_COLS]) {
                 case EXIT:
                     printf("X");
                     break;
+                default:
+                    printf("%c", (char) floor[i][j]);
+                    break;
             }
         }
         printf("\n");
