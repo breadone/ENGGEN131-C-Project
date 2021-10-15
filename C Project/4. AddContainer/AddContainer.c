@@ -45,19 +45,22 @@ void AddContainer(int floor[NUM_ROWS][NUM_COLS], int position, int size, int dir
         currentLetter++;
     }
     
+    // converts position in to x and y values for the array
     int x = position % NUM_ROWS;
     int y = position / NUM_ROWS;
     
-    if (direction) {
+    if (direction) { // case one: if the container is aligned vertically
+        // for loop to make sure the available space is vacant, and if not return immediately
         for (int i = 0; i < size; i++) {
             if (floor[y+i][x] != VACANT) {
                 return;
             }
         }
+        // identical for loop to actually add the container. nb, need two for loops because if the first check fails than cant add container
         for (int i = 0; i < size; i++) {
             floor[y+i][x] = currentLetter;
         }
-    } else {
+    } else { // case two: if the container is aligned horizontally
         for (int i = 0; i < size; i++) {
             if (floor[y][x+i] != VACANT) {
                 return;

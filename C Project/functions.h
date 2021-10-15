@@ -13,5 +13,6 @@
 #include "FloorAreaAvailable.h"
 #include "AddContainer.h"
 #include "LocateContainer.h"
+#include "MoveContainer.h"
 
 #endif /* functions_h */

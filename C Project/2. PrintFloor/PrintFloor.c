@@ -8,6 +8,9 @@
 #include "PrintFloor.h"
 #include "constants.h"
 
+/*
+ Formats and prints the provided floor
+ */
 void PrintFloor(int floor[NUM_ROWS][NUM_COLS]) {
     for (int i = 0; i < NUM_ROWS; i++) {
         for (int j = 0; j < NUM_COLS; j++) {
