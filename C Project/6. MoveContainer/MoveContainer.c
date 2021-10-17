@@ -9,12 +9,40 @@
 #include "AddContainer.h"
 
 int MoveContainer(int floor[NUM_ROWS][NUM_COLS], int r0, int c0, int r1, int c1, int isBlocked) {
-    int direction = 0;
+    int direction;
     int preferredDirection; // 1 for up/left, 0 for down/right
     int newStartPos;
+    int containerLength;
+    int result = 0;
     
-    if (!isBlocked) { return 0; } // if the container is blocked no point in continuing
-    if (c0 == c1) { direction = 1; } // decides the direction of the container
+    // decides the direction of the container
+    direction = (c0 == c1) ? 1 : 0;
+    // calculates the length of the container, does rely on the direction being known
+    containerLength = (direction) ? r1 - r0 + 1 : c1 - c0 + 1;
+    
+    // decides what to return if the container is blocked
+    if (!isBlocked && direction) {
+        switch (floor[r0 - 1][c0]) {
+            case ENTRY:
+                return 1;
+            case EXIT:
+                return 2;
+            default:
+                break;
+        }
+        
+        switch (floor[r1 + 1][c0]) {
+            case ENTRY:
+                return 1;
+            case EXIT:
+                return 2;
+            default:
+                break;
+        }
+        return -1;
+    } else if (!isBlocked) {
+        
+    }
     
     /* decides which direction is unblocked,
      since we know its not blocked we can assume if the preferred direction is blocked, then the other direction is free */
@@ -25,24 +53,100 @@ int MoveContainer(int floor[NUM_ROWS][NUM_COLS], int r0, int c0, int r1, int c1,
     }
     
     // moves the container
-    if (direction && preferredDirection) { // vert and up
+    if (direction && preferredDirection) { // vert container and moving up
         // finds the new start position of container
         newStartPos = r0;
-        for (int i = r0; i != VACANT; i--) {
+        do {
             newStartPos--;
-            
-        } /// this is prob the issue lol wtf is this
+        } while (floor[newStartPos-1][c0] == VACANT);
+        
+        // removes the container from the floor
         for (int i = r0; i <= r1; i++) {
             floor[i][c0] = VACANT;
         }
-        AddContainer(floor, (NUM_COLS * r0 + c0), (r1-r0), 1);
-    } else if (direction) { // vert and down
         
-    } else if (preferredDirection) { // horiz and left
+        // adds the container back to the floor in the new position
+        AddContainer(floor, (NUM_COLS * newStartPos + c0), containerLength, 1);
         
-    } else { // horiz and right
+        switch (floor[newStartPos-1][c0]) {
+            case ENTRY:
+                result = 1;
+                break;
+            case EXIT:
+                result = 2;
+            default:
+                break;
+        }
+    } else if (direction) { // vert container and moving down
+        // finds the new start position of container
+        newStartPos = r1;
+        do {
+            newStartPos++;
+        } while (floor[newStartPos+containerLength][c0] == VACANT);
         
+        // removes the container from the floor
+        for (int i = r0; i <= r1; i++) {
+            floor[i][c0] = VACANT;
+        }
+        
+        // adds the container back to the floor in the new position
+        AddContainer(floor, (NUM_COLS * newStartPos + c0), containerLength, 1);
+        
+        switch (floor[newStartPos+containerLength][c0]) {
+            case ENTRY:
+                result = 1;
+                break;
+            case EXIT:
+                result = 2;
+            default:
+                break;
+        }
+        
+    } else if (preferredDirection) { // horiz container and moving left
+        newStartPos = c0;
+        
+        do {
+            newStartPos--;
+        } while (floor[r0][newStartPos-1] == VACANT);
+        
+        for (int i = c0; i <= c1; i++) {
+            floor[r0][i] = VACANT;
+        }
+        
+        AddContainer(floor, (NUM_COLS * r0 + newStartPos), containerLength, 0);
+        
+        switch (floor[r0][newStartPos-1]) {
+            case ENTRY:
+                result = 1;
+                break;
+            case EXIT:
+                result = 2;
+            default:
+                break;
+        }
+    } else { // horiz container and moving right
+        newStartPos = c1;
+        
+        do {
+            newStartPos++;
+        } while (floor[r0][newStartPos+containerLength] == VACANT);
+        
+        for (int i = c0; i <= c1; i++) {
+            floor[r0][i] = VACANT;
+        }
+        
+        AddContainer(floor, (NUM_COLS * r0 + newStartPos), containerLength, 0);
+        
+        switch (floor[r0][newStartPos+containerLength]) {
+            case ENTRY:
+                result = 1;
+                break;
+            case EXIT:
+                result = 2;
+            default:
+                break;
+        }
     }
     
-    return 0;
+    return result;
 }
