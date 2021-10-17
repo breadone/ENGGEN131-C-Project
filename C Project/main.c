@@ -10,37 +10,28 @@
 
 int main(void) {
     int floor[NUM_ROWS][NUM_COLS];
-    
-//    int rowA, colA, rowB, colB;
-//    int result, isBlocked;
-//    InitialiseFloor(floor, 'R', 3);
-//    AddContainer(floor, 25, 2, 0);
-//    PrintFloor(floor);
-//
-//    // Move container A:
-//    isBlocked = LocateContainer(floor, 'A', &rowA, &colA, &rowB, &colB);
-//    result = MoveContainer(floor, rowA, colA, rowB, colB, isBlocked);
-//    printf("Result = %d\n", result);
-//    PrintFloor(floor);
-//    printf("---------\n");
-//    isBlocked = LocateContainer(floor, 'A', &rowA, &colA, &rowB, &colB);
-//    result = MoveContainer(floor, rowA, colA, rowB, colB, isBlocked);
-//    printf("Result = %d\n", result);
-//    PrintFloor(floor);
-    
-    int rowA, colA, rowB, colB;
-    int isBlocked;
-    int result;
+    char moves[10] = "HCDEGHIA";
+    int i, rowStart, colStart, rowEnd, colEnd, gameOver, isBlocked;
     InitialiseFloor(floor, 'R', 3);
-    AddContainer(floor, 25, 2, 0);
-    AddContainer(floor, 28, 3, 1);
+    AddContainer(floor, 27, 2, 0);
+    AddContainer(floor, 9, 2, 0);
+    AddContainer(floor, 17, 3, 0);
+    AddContainer(floor, 26, 2, 1);
+    AddContainer(floor, 42, 2, 1);
+    AddContainer(floor, 36, 2, 1);
+    AddContainer(floor, 51, 3, 0);
+    AddContainer(floor, 13, 3, 1);
+    AddContainer(floor, 22, 2, 1);
+
+    i = 0;
     PrintFloor(floor);
-    
-    // Move container B:
-    isBlocked = LocateContainer(floor, 'B', &rowA, &colA, &rowB, &colB);
-    result = MoveContainer(floor, rowA, colA, rowB, colB, isBlocked);
-    printf("Result = %d\n", result);
+    while (moves[i] != '\0') {
+    isBlocked = LocateContainer(floor, moves[i], &rowStart, &colStart, &rowEnd, &colEnd);
+    gameOver = MoveContainer(floor, rowStart, colStart, rowEnd, colEnd, isBlocked);
     PrintFloor(floor);
+    printf("Moved = %c; Game over = %d\n", moves[i], gameOver);
+    i++;
+    }
     return 0;
 }
 

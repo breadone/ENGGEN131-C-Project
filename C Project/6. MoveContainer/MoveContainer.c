@@ -9,6 +9,20 @@
 #include "AddContainer.h"
 #include "PrintFloor.h"
 
+/*
+ Moves a container according to the game's rules
+ Input:
+    - floor: game board array
+    - r0, r1: start and end row positions as given by LocateContainer
+    - c0, c1: start and end col positions as given by LocateContainer
+    - isBlocked: bool to determine if container is blocked given by LocateContainer
+ Output:
+    - int to determine the result of the move:
+        - 0: container moved, next to boundary or other container now
+        - 1: container moved, next to entry position now
+        - 2: container moved, next to exit position now
+        - -1: container didnt move, is blocked
+ */
 int MoveContainer(int floor[NUM_ROWS][NUM_COLS], int r0, int c0, int r1, int c1, int isBlocked) {
     int endPos = 0;
     char direction = 'X'; // U D L R, for up, down, left, and right respectively
