@@ -7,6 +7,7 @@
 
 #include "MoveContainer.h"
 #include "AddContainer.h"
+#include "PrintFloor.h"
 
 int MoveContainer(int floor[NUM_ROWS][NUM_COLS], int r0, int c0, int r1, int c1, int isBlocked) {
     int direction;
@@ -41,7 +42,24 @@ int MoveContainer(int floor[NUM_ROWS][NUM_COLS], int r0, int c0, int r1, int c1,
         }
         return -1;
     } else if (!isBlocked) {
+        switch (floor[r0][c0 - 1]) {
+            case ENTRY:
+                return 1;
+            case EXIT:
+                return 2;
+            default:
+                break;
+        }
         
+        switch (floor[r0][c1 + 1]) {
+            case ENTRY:
+                return 1;
+            case EXIT:
+                return 2;
+            default:
+                break;
+        }
+        return -1;
     }
     
     /* decides which direction is unblocked,
@@ -149,4 +167,93 @@ int MoveContainer(int floor[NUM_ROWS][NUM_COLS], int r0, int c0, int r1, int c1,
     }
     
     return result;
+}
+
+int MoveContainerAlt(int floor[NUM_ROWS][NUM_COLS], int r0, int c0, int r1, int c1, int isBlocked) {
+    int result = 0;
+    char direction = 'X'; // U D L R, for up, down, left, and right respectively
+    int containerLetter = floor[r0][c0];
+    int containerLength = 0;
+    int headPos, tailPos;
+    
+    if (!isBlocked) { goto blocked; }
+    
+    if (c0 == c1) { // if c0 and c1 are the same, we know the container is oriented vertically
+        direction = (floor[r0-1][c0] == VACANT) ? 'U' : 'D';
+    } else {
+        direction = (floor[r0][c0-1] == VACANT) ? 'L' : 'R';
+    }
+    
+    // calculates the length of the container based on the direction
+    containerLength = (direction == 'U' || direction == 'D') ? r1 - r0 + 1 : c1 - c0 + 1;
+    
+blocked:
+    if (!isBlocked) {
+        if (floor[r0-1][c0] == ENTRY ||
+            floor[r1+1][c0] == ENTRY ||
+            floor[r0][c0-1] == ENTRY ||
+            floor[r0][c1+1] == ENTRY) {
+            return 1;
+        }
+        
+        if (floor[r0-1][c0] == EXIT ||
+            floor[r1+1][c0] == EXIT ||
+            floor[r0][c0-1] == EXIT ||
+            floor[r0][c1+1] == EXIT) {
+            return 2;
+        }
+    }
+    
+    // moves the container in the specified direction
+    switch (direction) {
+        case 'U':
+            headPos = r0;
+            tailPos = r1;
+            do {
+                floor[headPos-1][c0] = containerLetter;
+                floor[tailPos][c0] = VACANT;
+                headPos--; tailPos--;
+            } while (floor[headPos-1][c0] == VACANT);
+            result = floor[headPos-1][c0];
+            break;
+        case 'D':
+            headPos = r1;
+            tailPos = r0;
+            do {
+                floor[headPos+1][c0] = containerLetter;
+                floor[tailPos][c0] = VACANT;
+                headPos++; tailPos++;
+            } while (floor[headPos+1][c0] == VACANT);
+            result = floor[headPos+1][c0];
+            break;
+        case 'L':
+            headPos = c0;
+            tailPos = c1;
+            do {
+                floor[r0][headPos-1] = containerLetter;
+                floor[r0][tailPos] = VACANT;
+                headPos--; tailPos--;
+            } while (floor[r0][headPos-1] == VACANT);
+            result = floor[r0][headPos-1];
+            break;
+        case 'R':
+            headPos = c1;
+            tailPos = c0;
+            do {
+                floor[r0][headPos+1] = containerLetter;
+                floor[r0][tailPos] = VACANT;
+                headPos++; tailPos++;
+            } while (floor[r0][headPos+1] == VACANT);
+            result = floor[r0][headPos+1];
+            break;
+    }
+    
+    switch (result) {
+        case ENTRY:
+            return 1;
+        case EXIT:
+            return 2;
+        default:
+            return 0;
+    }
 }
