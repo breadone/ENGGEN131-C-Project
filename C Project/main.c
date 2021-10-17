@@ -11,14 +11,33 @@
 int main(void) {
     int floor[NUM_ROWS][NUM_COLS];
     
+//    int rowA, colA, rowB, colB;
+//    int result, isBlocked;
+//    InitialiseFloor(floor, 'R', 3);
+//    AddContainer(floor, 25, 2, 0);
+//    PrintFloor(floor);
+//
+//    // Move container A:
+//    isBlocked = LocateContainer(floor, 'A', &rowA, &colA, &rowB, &colB);
+//    result = MoveContainer(floor, rowA, colA, rowB, colB, isBlocked);
+//    printf("Result = %d\n", result);
+//    PrintFloor(floor);
+//    printf("---------\n");
+//    isBlocked = LocateContainer(floor, 'A', &rowA, &colA, &rowB, &colB);
+//    result = MoveContainer(floor, rowA, colA, rowB, colB, isBlocked);
+//    printf("Result = %d\n", result);
+//    PrintFloor(floor);
+    
     int rowA, colA, rowB, colB;
-    int result, isBlocked;
+    int isBlocked;
+    int result;
     InitialiseFloor(floor, 'R', 3);
     AddContainer(floor, 25, 2, 0);
+    AddContainer(floor, 28, 3, 1);
     PrintFloor(floor);
     
-    // Move container A:
-    isBlocked = LocateContainer(floor, 'A', &rowA, &colA, &rowB, &colB);
+    // Move container B:
+    isBlocked = LocateContainer(floor, 'B', &rowA, &colA, &rowB, &colB);
     result = MoveContainer(floor, rowA, colA, rowB, colB, isBlocked);
     printf("Result = %d\n", result);
     PrintFloor(floor);
