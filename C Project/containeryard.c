@@ -22,7 +22,7 @@ char GetMove(void) {
 }
 
 /* The main Container Yard simulation */
-int main(void) {
+int m_main(void) {
 	int gameOver = 0;
 	int isBlocked = 0;
 	int floor[NUM_ROWS][NUM_COLS];

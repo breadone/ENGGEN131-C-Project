@@ -1,5 +1,5 @@
 //
-//  LocateContainer.c
+//  5. LocateContainer.c
 //  ENGGEN 131 C Project
 //
 //  Created by Pradyun Setti on 13/10/21.
@@ -53,4 +53,41 @@ int LocateContainer(int floor[NUM_ROWS][NUM_COLS], char move, int *rowStart, int
     }
     
     return stuck;
+}
+
+
+int LocateContainerAlt(int floor[NUM_ROWS][NUM_COLS], char move, int *rowStart, int *colStart, int *rowEnd, int *colEnd) {
+    int length = 1;
+    int direction = 1;
+    
+    // finds the start of the container
+    for (int i = 0; i < NUM_ROWS; i++) {
+        for (int j = 0; j < NUM_COLS; j++) {
+            if ((char) floor[i][j] == move) {
+                *rowStart = i;
+                *colStart = j;
+            }
+        }
+    }
+    
+    // decides direction of the contianer to make it easier
+    if ((char) floor[*rowStart][*colStart+1] == move) {
+        direction = 0;
+    }
+    
+    if (direction) {
+        while (floor[*rowStart+length][*colStart] == move) {
+            *rowEnd = *rowStart + length;
+            length++;
+        }
+    } else {
+        while (floor[*rowStart][*colStart+length] == move) {
+            *colEnd = *colStart + length;
+            length++;
+        }
+    }
+    
+    
+    
+    return 0;
 }

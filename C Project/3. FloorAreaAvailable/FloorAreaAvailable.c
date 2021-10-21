@@ -23,3 +23,18 @@ double FloorAreaAvailable(int floor[NUM_ROWS][NUM_COLS], double length, double w
     
     return area;
 }
+
+double FloorAreaAvailableAlt(int floor[NUM_ROWS][NUM_COLS], double length, double width) {
+    double area = 0;
+    double cell = length * width;
+    
+    for (int i = 0; i < NUM_ROWS; i++) {
+        for (int j = 0; j < NUM_COLS; j++) {
+            if (floor[i][j] == VACANT) {
+                area += cell;
+            }
+        }
+    }
+    
+    return area;
+}

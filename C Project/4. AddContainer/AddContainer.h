@@ -11,5 +11,6 @@
 #include <stdio.h>
 #include "constants.h"
 void AddContainer(int floor[NUM_ROWS][NUM_COLS], int position, int size, int direction);
+void AddContainerAlt(int floor[NUM_ROWS][NUM_COLS], int position, int size, int direction);
 
 #endif /* AddContainer_h */

@@ -11,5 +11,6 @@
 #include "constants.h"
     
 void InitialiseFloor(int floor[NUM_ROWS][NUM_COLS], char entryboundary, int index);
+void InitialiseFloorAlt(int floor[NUM_ROWS][NUM_COLS], char entryboundary, int index);
 
 #endif

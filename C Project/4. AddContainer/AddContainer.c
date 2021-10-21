@@ -71,3 +71,55 @@ void AddContainer(int floor[NUM_ROWS][NUM_COLS], int position, int size, int dir
         }
     }
 }
+
+
+void AddContainerAlt(int floor[NUM_ROWS][NUM_COLS], int position, int size, int direction) {
+    int foundLetter = 1;
+    char letter = 'A';
+    int x = position % NUM_ROWS;
+    int y = position / NUM_ROWS;
+    int blocked = 0;
+    
+    // searches for the next available letter
+    while (foundLetter) {
+        foundLetter = 0;
+        for (int i = 0; i < NUM_ROWS; i++) {
+            for (int j = 0; j < NUM_COLS; j++) {
+                if (floor[i][j] == letter) {
+                    foundLetter = 1;
+                    letter++;
+                }
+            }
+        }
+    }
+    
+    // decides whether there is space for the container
+    if (direction) {
+        for (int i = 0; i < size; i++) {
+            if (floor[y+i][x] != VACANT) {
+                blocked = 1;
+                break;
+            }
+        }
+    } else {
+        for (int i = 0; i < size; i++) {
+            if (floor[y][x+i] != VACANT) {
+                blocked = 1;
+                break;
+            }
+        }
+    }
+    
+    // adds the container if there is space for it
+    if (!blocked) {
+        if (direction) {
+            for (int i = 0; i < size; i++) {
+                floor[y+i][x] = letter;
+            }
+        } else {
+            for (int i = 0; i < size; i++) {
+                floor[y][x+i] = letter;
+            }
+        }
+    }
+}

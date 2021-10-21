@@ -11,5 +11,6 @@
 #include <stdio.h>
 #include "constants.h"
 double FloorAreaAvailable(int floor[NUM_ROWS][NUM_COLS], double length, double width);
+double FloorAreaAvailableAlt(int floor[NUM_ROWS][NUM_COLS], double length, double width);
 
 #endif /* FloorAreaAvailable_h */

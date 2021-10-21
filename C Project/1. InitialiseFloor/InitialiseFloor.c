@@ -54,3 +54,48 @@ void InitialiseFloor(int floor[NUM_ROWS][NUM_COLS], char entryboundary, int inde
             break;
     }
 }
+
+void InitialiseFloorAlt(int floor[NUM_ROWS][NUM_COLS], char entryboundary, int index) {
+    // do top row
+    for (int i = 0; i < NUM_COLS; i++) {
+        floor[0][i] = BOUNDARY;
+    }
+    
+    // do middle stuff
+    for (int i = 1; i < NUM_ROWS-1; i++) {
+        for (int j = 0; j < NUM_COLS; j++) {
+            floor[i][j] = VACANT;
+            
+            // make right or left side the boundary
+            if (j == 0 || j == NUM_COLS - 1) {
+                floor[i][j] = BOUNDARY;
+            }
+        }
+    }
+    
+    // do bottom row
+    for (int i = 0; i < NUM_COLS; i++) {
+        floor[NUM_ROWS-1][i] = BOUNDARY;
+    }
+    
+    switch (entryboundary) {
+        case 'T':
+            floor[0][index] = ENTRY;
+            floor[NUM_ROWS-1][index] = EXIT;
+            break;
+        case 'B':
+            floor[NUM_ROWS-1][index] = ENTRY;
+            floor[0][index] = EXIT;
+            break;
+        case 'L':
+            floor[index][0] = ENTRY;
+            floor[index][NUM_COLS-1] = EXIT;
+            break;
+        case 'R':
+            floor[index][NUM_COLS-1] = ENTRY;
+            floor[index][0] = EXIT;
+            break;
+        default:
+            break;
+    }
+}
